@@ -43,6 +43,16 @@ async function run() {
         })
 
 
+        // ADD SERVICE
+        app.post('/exploreCityData', async (req, res) => {
+            const newUser = req.body;
+            const result = await cityDataCollection.insertOne(newUser);
+            // console.log('customer gotted', result);
+            res.json(result);
+        })
+
+
+
         // POST CUSTOMER CHOICE
         app.post('/customerChoice', async (req, res) => {
             const newUser = req.body;
